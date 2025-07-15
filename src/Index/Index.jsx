@@ -54,16 +54,18 @@ const Portfolio = () => {
   return (
     <>
     {showToast && (
-  <div
-    role="alert"
-    aria-live="assertive"
-    className={`toast ${toastMessage.toLowerCase().includes("fail") ? "error" : "success"}`}
-  >
-    <span className="toast-icon">&#10003;</span>
-        <span className="toast-message">{toastMessage}</span>
+    <div
+      role="alert"
+      aria-live="assertive"
+      className={`toast ${toastMessage.toLowerCase().includes("fail") ? "error" : "success"}`}
+    >
+      <span className="toast-icon">
+        {toastMessage.toLowerCase().includes("fail") ? '✖' : '✓'}
+      </span>
+      <span className="toast-message">{toastMessage}</span>
+    </div>
+  )}
 
-  </div>
-)}
 
       <header className="header">
         <a href="#!" className="logo">Portfolio</a>
