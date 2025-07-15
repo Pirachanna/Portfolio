@@ -66,7 +66,7 @@ const Portfolio = () => {
 )}
 
       <header className="header">
-        <a href="/#" className="logo">Portfolio</a>
+        <a href="#" className="logo" onClick={(e) => e.preventDefault()}>Portfolio</a>
         <i className='bx bx-menu' id="menu-icon"></i>
         <nav className="navbar">
           <a href="#home" className="active">Home</a>
@@ -97,7 +97,7 @@ const Portfolio = () => {
         <div className="home-img">
           <div className="img-box">
             <div className="img-item">
-              <img src="/Portfolio/assets/Pic.png" alt="" />
+              <img src="assets/Pic.png" alt="" />
             </div>
           </div>
         </div>
@@ -107,7 +107,7 @@ const Portfolio = () => {
         <div className="about-img">
           <div className="img-box1">
             <div className="img-item1">
-              <img src="/Portfolio/assets/Pic.png" alt="" />
+              <img src="assets/Pic.png" alt="" />
             </div>
           </div>
         </div>
@@ -118,7 +118,7 @@ const Portfolio = () => {
            Familiar with building RESTful APIs, working with databases like PostgreSQL and MongoDB, 
            and deploying apps using Docker and AWS. Eager to learn, grow, and contribute to real-world projects with strong problem-solving skills.
         </p>
-          <a href="/#" className="btn">Read More</a>
+          <a href="#!" className="btn">Read More</a>
         </div>
       </section>
 
@@ -135,7 +135,7 @@ const Portfolio = () => {
                     <li type="disc">Integration with third-party APIs and services.</li>
                     <li type="disc"> Data validation and serialization.</li>
                     </ol>
-                <a href="/#" className="read">Learn More</a>
+                <a href="#!" className="read">Learn More</a>
               </div>
               <div>
                     <i className="fi fi-ts-square-terminal" style={{ color: '#00eeff' }}></i>
@@ -146,7 +146,7 @@ const Portfolio = () => {
                       <li type="disc"> Dynamic data visualization (charts, dashboards).</li>
                       <li type="disc"> Mobile-friendly & cross-browser compatibility.</li>
                        </ol>
-                    <a href="/#" className="read">Learn More</a>
+                    <a href="#!" className="read">Learn More</a>
                 </div>
                 <div>
                    <i className="fi fi-rr-database" style={{ color: '#00eeff' }}></i>
@@ -157,7 +157,7 @@ const Portfolio = () => {
                       <li type="disc"> Database schema design and normalization</li>
                       <li type="disc"> ORM integration (Django ORM, SQLAlchemy).</li>
                        </ol>
-                    <a href="/#" className="read">Learn More</a>
+                    <a href="#!" className="read">Learn More</a>
                 </div>
             </div>
           </div>
