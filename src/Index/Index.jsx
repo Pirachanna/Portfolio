@@ -97,7 +97,7 @@ const Portfolio = () => {
         <div className="home-img">
           <div className="img-box">
             <div className="img-item">
-              <img src="assets/Pic.png" alt="" />
+            <img src="/Portfolio/assets/Pic.png" />
             </div>
           </div>
         </div>
@@ -107,7 +107,7 @@ const Portfolio = () => {
         <div className="about-img">
           <div className="img-box1">
             <div className="img-item1">
-              <img src="assets/Pic.png" alt="" />
+              <img src="/Portfolio/assets/Pic.png" />
             </div>
           </div>
         </div>
