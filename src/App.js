@@ -8,11 +8,11 @@ function App() {
     <HashRouter>
       <AppEffects />
       <Routes>
-        <Route path='/' element={<Index />} />
-        <Route path='/about' element={<About />} />
-        <Route path='/contact' element={<Contact />} />
-        <Route path='/skill' element={<Skill />} />
-        <Route path='/services' element={<Services />} />
+        <Route path="/" element={<Index />} />
+        <Route path="/about" element={<Index />} />
+        <Route path="/contact" element={<Index />} />
+        <Route path="/services" element={<Index />} />
+        <Route path="/skill" element={<Index />} />
       </Routes>
     </HashRouter>
   );
