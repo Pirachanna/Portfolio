@@ -36,7 +36,7 @@ const Portfolio = () => {
     }
     setLoading(true);
     try {
-      const res = await axios.post("https://portfolio-taf6.onrender.com", formData);
+      const res = await axios.post("https://portfolio-taf6.onrender.com/api/contact/", formData);
       if (res.status === 200 || res.data.success) {
         triggerToast("Message sent successfully!");
         setFormData({ name: "", email: "", number: "", subject: "", message: "" });
