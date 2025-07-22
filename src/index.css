@@ -924,6 +924,10 @@ textarea:-webkit-autofill:focus {
     .services h2 {
         margin-bottom: 3rem;
     }
+    .services {
+        display: flex;
+        justify-content: center;
+    }
     .contact form .row {
         flex-direction: column;
     }
