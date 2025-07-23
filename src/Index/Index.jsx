@@ -73,8 +73,9 @@ const Portfolio = () => {
         <nav className="navbar">
           <a href="#home" className="active">Home</a>
           <a href="#about">About</a>
-          <a href="#services">Services</a>
+          {/*<a href="#services">Services</a>*/}
           <a href="#skill">Skill</a>
+          <a href="#portfolio">Portfolio</a>            
           <a href="#contact">Contact</a>
         </nav>
       </header>
@@ -88,9 +89,9 @@ const Portfolio = () => {
             in building responsive web applications using Django, Flask, and React. Eager to contribute my technical knowledge, problem-solving skills,
             and passion for continuous learning in a challenging development environment.</p>
           <div className="social-media">
-            <a href="https://www.linkedin.com/in/pirachannasundar..."><i className='bx bxl-linkedin'></i></a>
-            <a href="https://github.com/Pirachanna"><i className='bx  bxl-github'></i></a>
-            <a href="https://www.facebook.com/pirachanna.sundar"><i className='bx bxl-facebook'></i></a>
+            <a href="https://www.linkedin.com/in/pirachannasundar..." target="_blank" rel="noopener noreferrer"><i className='bx bxl-linkedin'></i></a>
+            <a href="https://github.com/Pirachanna" target="_blank" rel="noopener noreferrer"><i className='bx  bxl-github'></i></a>
+            <a href="https://www.facebook.com/pirachanna.sundar" target="_blank" rel="noopener noreferrer"><i className='bx bxl-facebook'></i></a>
             <a href="https://wa.me/919843414019?text=Hi%2C%20I%20visited%20your%20portfolio!" target="_blank" rel="noopener noreferrer" title="Chat on WhatsApp"><i className='bx  bxl-whatsapp'></i> </a>
 
           </div>
@@ -128,18 +129,18 @@ const Portfolio = () => {
           <div className="container">
             <h1 className="sub-title">My <span>Services</span></h1>
             <div className="services-list">
-              <div>
-                <i className='bx bx-code' style={{ color: '#00eeff' }}></i>
-                <h2>Backend Development</h2>
-                <ol>
-                    <li type="disc">Custom API Development using Django/Flask/FastAPI.</li>
-                    <li type="disc"> Business logic implementation and performance optimization.</li>
-                    <li type="disc">Integration with third-party APIs and services.</li>
-                    <li type="disc"> Data validation and serialization.</li>
-                    </ol>
-                <a href="#!" className="read">Learn More</a>
-              </div>
-              <div>
+                <div>
+                  <i className='bx bx-code' style={{ color: '#00eeff' }}></i>
+                  <h2>Backend Development</h2>
+                  <ol>
+                      <li type="disc">Custom API Development using Django/Flask/FastAPI.</li>
+                      <li type="disc"> Business logic implementation and performance optimization.</li>
+                      <li type="disc">Integration with third-party APIs and services.</li>
+                      <li type="disc"> Data validation and serialization.</li>
+                  </ol>
+                  {/*<a href="#!" className="read">Learn More</a>*/}
+                </div>
+             <div>
                     <i className="fi fi-ts-square-terminal" style={{ color: '#00eeff' }}></i>
                     <h2>Frontend Development</h2>
                     <ol>
@@ -148,7 +149,7 @@ const Portfolio = () => {
                       <li type="disc"> Dynamic data visualization (charts, dashboards).</li>
                       <li type="disc"> Mobile-friendly & cross-browser compatibility.</li>
                        </ol>
-                    <a href="#!" className="read">Learn More</a>
+                    {/*<a href="#!" className="read">Learn More</a>*/}
                 </div>
                 <div>
                    <i className="fi fi-rr-database" style={{ color: '#00eeff' }}></i>
@@ -159,7 +160,7 @@ const Portfolio = () => {
                       <li type="disc"> Database schema design and normalization</li>
                       <li type="disc"> ORM integration (Django ORM, SQLAlchemy).</li>
                        </ol>
-                    <a href="#!" className="read">Learn More</a>
+                    {/*<a href="#!" className="read">Learn More</a>*/}
                 </div>
             </div>
           </div>
@@ -307,6 +308,21 @@ const Portfolio = () => {
       </div>
       </div>
     </section>
+
+<section className="portfolio" id="portfolio">
+  <h2 className="heading">
+    Featured <span>Portfolio</span>
+  </h2>
+  <div className="portfolio-container">
+    <div className="portfolio-box">
+      <div className="portfolio-layer">
+        <i className="bx bx-rocket"></i>
+        <h4> More Projects <span> Coming Soon!</span></h4>
+        <p>I'm currently working on new projects to build my skills and expand my portfolio. Stay tuned!</p>
+      </div>
+  </div>
+</div>
+</section>
 
 <section className="contact" id="contact">
   <h2 className="heading">Contact <span>Me!</span></h2>

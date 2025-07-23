@@ -327,7 +327,6 @@ span{
     line-height: 1.4;
 }
 #services{
-    color: aliceblue;
     font-size: 20px;
     line-height: 1.4;
     margin-bottom: 4rem;
@@ -376,6 +375,7 @@ span{
     margin-top: 20px;
     display: inline-block;
 }
+/*
 .read {
     display: inline-block;
     padding: 1rem 2.8rem;
@@ -394,6 +394,7 @@ span{
 .read:hover {
     box-shadow: none;
 }
+*/
 .services-list div:hover{
     transform: translateY(-10px);
 }
@@ -675,6 +676,47 @@ span{
     animation: showText 0.5 1s linear forwards;
     opacity: 0;
 }
+.portfolio-container {
+  max-width: 950px;
+  margin: 0 auto;
+  padding: 0 90px;
+}
+.portfolio-box{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(259px,1fr));
+    grid-gap: 40px;
+    margin-top: 50px;
+}
+.portfolio-box div{
+    background-color: transparent;
+    padding: 40px;
+    border-radius: 20px;
+    transition: background 0.5s, transform 0.5s;
+    box-shadow: 1px 1px 20px #012290f7,
+                1px 1px 40px #0053b8f7;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 15px;
+}
+.portfolio-box i {
+    font-size: 45px;
+    color: var(--main-color);
+}
+.portfolio-box h4 {
+    font-size: 3rem;
+    font-weight: 500;
+}
+.portfolio-box p{
+  font-size: 1.6rem;
+  font-weight: 300;
+  color:  #ccc;
+}
+.portfolio-box div:hover{
+    transform: translateY(-10px);
+}
 .contact {
   background: var(--bg-color);
 
@@ -862,12 +904,20 @@ textarea:-webkit-autofill:focus {
   .radial-bars {
     justify-content: center;
   }
-    .contact {
-        min-height: auto;
-    }
-    .footer {
-        padding: 2rem 3%;
-    }
+  .portfolio-container {
+    padding: 0 5%;
+  }
+
+  .portfolio-box {
+    grid-gap: 30px;
+  }
+
+  .contact {
+    min-height: auto;
+  }
+  .footer {
+     padding: 2rem 3%;
+  }
 }
 
 @media (max-width: 768px) {
@@ -897,10 +947,10 @@ textarea:-webkit-autofill:focus {
         flex-direction: column;
     }
     .home-img {
-    animation: none ;
-    transform: none ;
-    margin-top: 2rem;
-  }
+        animation: none ;
+        transform: none ;
+        margin-top: 2rem;
+    }
     .home-content h3 {
         font-size: 2.6rem;
     }
@@ -922,22 +972,33 @@ textarea:-webkit-autofill:focus {
     }
     
     .services h2 {
-        margin-bottom: 3rem;
+        margin-bottom: 2.6rem;
     }
     .services {
         display: flex;
         justify-content: center;
+    }
+    .portfolio-box {
+      grid-template-columns: 1fr;
+      margin-top: 30px;
+    }
+    .portfolio-box div {
+      padding: 30px;
+    }
+    .portfolio-box h4 {
+      font-size: 2.2rem;
+    }
+    .portfolio-box p {
+      font-size: 1.4rem;
+    }
+    .portfolio-box i {
+      font-size: 40px;
     }
     .contact form .row {
         flex-direction: column;
     }
   .contact form .col-md-6 {
         min-width: 100%; 
-    }
-}
-@media (max-width: 617px) {
-    .portfolio-container {
-        grid-template-columns: 1fr;
     }
 }
 @media (max-width: 576px) {
