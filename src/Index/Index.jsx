@@ -91,7 +91,7 @@ const Portfolio = () => {
           <div className="social-media">
             <a href="https://www.linkedin.com/in/pirachannasundar..." target="_blank" rel="noopener noreferrer"><i className='bx bxl-linkedin'></i></a>
             <a href="https://github.com/Pirachanna" target="_blank" rel="noopener noreferrer"><i className='bx  bxl-github'></i></a>
-            <a href="https://www.facebook.com/pirachanna.sundar" target="_blank" rel="noopener noreferrer"><i className='bx bxl-facebook'></i></a>
+            {/*<a href="https://www.facebook.com/pirachanna.sundar" target="_blank" rel="noopener noreferrer"><i className='bx bxl-facebook'></i></a>*/}
             <a href="https://wa.me/919843414019?text=Hi%2C%20I%20visited%20your%20portfolio!" target="_blank" rel="noopener noreferrer" title="Chat on WhatsApp"><i className='bx  bxl-whatsapp'></i> </a>
 
           </div>

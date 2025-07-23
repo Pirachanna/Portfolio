@@ -375,6 +375,12 @@ span{
     margin-top: 20px;
     display: inline-block;
 }
+.services-list ol li {
+  color: #ccc;
+}
+.services-list div:hover{
+    transform: translateY(-10px);
+}
 /*
 .read {
     display: inline-block;
@@ -395,9 +401,6 @@ span{
     box-shadow: none;
 }
 */
-.services-list div:hover{
-    transform: translateY(-10px);
-}
 .section{
     display: flex;
     flex-wrap: wrap;
