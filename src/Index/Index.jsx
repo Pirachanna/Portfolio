@@ -1,4 +1,6 @@
 import React, { useState, useRef } from 'react';
+import { FaReact } from "react-icons/fa";
+import { SiDjango, SiMongodb, SiPython, SiHtml5, SiCss3 } from "react-icons/si";
 import axios from "axios";
 
 const Portfolio = () => {
@@ -9,17 +11,29 @@ const Portfolio = () => {
     subject: "",
     message: "",
   });
+
   const [toastMessage, setToastMessage] = useState("");
   const [showToast, setShowToast] = useState(false);
   const [loading, setLoading] = useState(false);
   const toastTimeout = useRef(null);
 
   const handleChange = (e) => {
+  const { name, value } = e.target;
+
+  if (name === "number") {
+    // Allow only digits
+    const onlyNums = value.replace(/[^0-9]/g, "");
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value,
+      [name]: onlyNums,
     });
-  };
+  } else {
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  }
+};
 
   const triggerToast = (message) => {
     setToastMessage(message);
@@ -30,7 +44,7 @@ const Portfolio = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!formData.name || !formData.email || !formData.message) {
+    if (!formData.name || !formData.email || !formData.number || !formData.subject || !formData.message) {
       triggerToast("Please fill in all required fields.");
       return;
     }
@@ -53,20 +67,6 @@ const Portfolio = () => {
 
   return (
     <>
-    {showToast && (
-    <div
-      role="alert"
-      aria-live="assertive"
-      className={`toast ${toastMessage.toLowerCase().includes("fail") ? "error" : "success"}`}
-    >
-      <span className="toast-icon">
-        {toastMessage.toLowerCase().includes("fail") ? '✖' : '✓'}
-      </span>
-      <span className="toast-message">{toastMessage}</span>
-    </div>
-  )}
-
-
       <header className="header">
         <a href="#!" className="logo">Portfolio</a>
         <i className='bx bx-menu' id="menu-icon"></i>
@@ -93,7 +93,6 @@ const Portfolio = () => {
             <a href="https://github.com/Pirachanna" target="_blank" rel="noopener noreferrer"><i className='bx  bxl-github'></i></a>
             {/*<a href="https://www.facebook.com/pirachanna.sundar" target="_blank" rel="noopener noreferrer"><i className='bx bxl-facebook'></i></a>*/}
             <a href="https://wa.me/919843414019?text=Hi%2C%20I%20visited%20your%20portfolio!" target="_blank" rel="noopener noreferrer" title="Chat on WhatsApp"><i className='bx  bxl-whatsapp'></i> </a>
-
           </div>
           <a href="assets/Pirachanna Resume.pdf" download="Pirachanna Resume" className="btn">Download CV</a>
         </div>
@@ -106,11 +105,11 @@ const Portfolio = () => {
         </div>
       </section>
 
-      <section className="about" id="about">
+<section className="about" id="about">
         <div className="about-img">
           <div className="img-box1">
             <div className="img-item1">
-              <img src={`${process.env.PUBLIC_URL}/assets/Pic.png`} alt="" />
+              <img src={`${process.env.PUBLIC_URL}/assets/Pic.png`} alt=""/>
             </div>
           </div>
         </div>
@@ -121,11 +120,11 @@ const Portfolio = () => {
            Familiar with building RESTful APIs, working with databases like PostgreSQL and MongoDB, 
            and deploying apps using Docker and AWS. Eager to learn, grow, and contribute to real-world projects with strong problem-solving skills.
         </p>
-          <a href="#!" className="btn">Read More</a>
+          {/*<a href="#!" className="btn">Read More</a>*/}
         </div>
-      </section>
+</section>
 
-      <section className='services' id='services'>
+<section className='services' id='services'>
           <div className="container">
             <h1 className="sub-title">My <span>Services</span></h1>
             <div className="services-list">
@@ -140,7 +139,7 @@ const Portfolio = () => {
                   </ol>
                   {/*<a href="#!" className="read">Learn More</a>*/}
                 </div>
-             <div>
+                <div>
                     <i className="fi fi-ts-square-terminal" style={{ color: '#00eeff' }}></i>
                     <h2>Frontend Development</h2>
                     <ol>
@@ -164,18 +163,19 @@ const Portfolio = () => {
                 </div>
             </div>
           </div>
-      </section>
+</section>
 
-      <section className="skill" id="skill">
+<section className="skill" id="skill">
       <div>
-        <h1 className="sub-title">My <span>Skills</span></h1>
+        <h1 className="heading">My <span>Skills</span></h1>
       </div>
     <div className='skills-wrapper'>
       <div className="skills-left" id="skills">
         <h1 className="heading1">Technical Skills</h1>
         <div className="Technical-bars">
+
           <div className="bar">
-            <i className="bx bxl-html5" style={{ color: "#00eeff" }}></i>
+            <i className="bx bxl-html5"></i>
             <div className="info">
               <span>HTML5</span>
             </div>
@@ -185,7 +185,7 @@ const Portfolio = () => {
           </div>
 
           <div className="bar">
-            <i className="bx bxl-css3" style={{ color: "#00eeff" }}></i>
+            <i className="bx bxl-css3"></i>
             <div className="info">
               <span>CSS3</span>
             </div>
@@ -195,7 +195,7 @@ const Portfolio = () => {
           </div>
 
           <div className="bar">
-            <i className="bx bxl-javascript" style={{ color: "#00eeff" }}></i>
+            <i className="bx bxl-javascript"></i>
             <div className="info">
               <span>ADV.JAVASCRIPT</span>
             </div>
@@ -205,7 +205,7 @@ const Portfolio = () => {
           </div>
 
           <div className="bar">
-            <i className="bx bxl-python" style={{ color: "#00eeff" }}></i>
+            <i className="bx bxl-python"></i>
             <div className="info">
               <span>PYTHON</span>
             </div>
@@ -215,7 +215,7 @@ const Portfolio = () => {
           </div>
 
           <div className="bar">
-            <i className="bx bxl-react" style={{ color: "#00eeff" }}></i>
+            <i className="bx bxl-react"></i>
             <div className="info">
               <span>REACT JS</span>
             </div>
@@ -225,7 +225,7 @@ const Portfolio = () => {
           </div>
 
           <div className="bar">
-            <i className="bx bxl-bootstrap" style={{ color: "#00eeff" }}></i>
+            <i className="bx bxl-bootstrap"></i>
             <div className="info">
               <span>BOOTSTRAP</span>
             </div>
@@ -235,7 +235,7 @@ const Portfolio = () => {
           </div>
 
           <div className="bar">
-            <i className="bx bxl-mongodb" style={{ color: "#00eeff" }}></i>
+            <i className="bx bxl-mongodb"></i>
             <div className="info">
               <span>MongoDB</span>
             </div>
@@ -245,7 +245,7 @@ const Portfolio = () => {
           </div>
 
           <div className="bar">
-            <i className="bx bxl-django" style={{ color: "#00eeff" }}></i>
+            <i className="bx bxl-django"></i>
             <div className="info">
               <span>DJANGO</span>
             </div>
@@ -255,7 +255,7 @@ const Portfolio = () => {
           </div>
 
           <div className="bar">
-            <i className="fi fi-brands-mysql" style={{ color: "#00eeff" }}></i>
+            <i className="fi fi-brands-mysql"></i>
             <div className="info">
               <span>MY SQL</span>
             </div>
@@ -263,12 +263,14 @@ const Portfolio = () => {
               <span></span>
             </div>
           </div>
+
         </div>
       </div>
 
       <div className="skills-right">
         <h1 className="heading1">Professtional Skills</h1>
         <div className="radial-bars">
+
           <div className="radial-bar">
             <svg x="0px" y="0px" viewBox="0 0 200 200">
               <circle className="progress-bar" cx="100" cy="100" r="80"></circle>
@@ -304,23 +306,59 @@ const Portfolio = () => {
             <div className="percentage">85%</div>
             <div className="text">Teamwork</div>
           </div>
+          
         </div>
       </div>
       </div>
     </section>
 
 <section className="portfolio" id="portfolio">
-  <h2 className="heading">
-    Featured <span>Portfolio</span>
+  <h2 className="portfolio-heading">
+    Featured <span>Project</span>
   </h2>
   <div className="portfolio-container">
     <div className="portfolio-box">
-      <div className="portfolio-layer">
+      <div className='portfolio-card'>
+          <i className="bx bx-globe"></i>
+          <h4>Portfolio Website</h4>
+          <p>A portfolio website built from scratch using React (frontend), Django (backend), and MongoDB as the database.</p>
+          <div className="tech-used">
+            <strong>Tech Stack:</strong>
+            <div className="tech-icons">
+              <FaReact title="React" />
+              <SiDjango title="Django" />
+              <SiMongodb title="MongoDB" />
+              <SiPython title="Python" />
+              <SiHtml5 title="HTML5" />
+              <SiCss3 title="CSS3" />
+            </div>
+          </div>
+          <div className="project-buttons">
+            <a
+              href="https://github.com/Pirachanna/Portfolio"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn"
+            >
+              View Frontend Code
+            </a>
+            <a
+              href="https://github.com/Pirachanna/Portfolio-backend"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn"
+            >
+              View Backend Code
+            </a>
+          </div>
+        </div>
+
+  </div>
+  <div className="portfolio-placeholder">
         <i className="bx bx-rocket"></i>
         <h4> More Projects <span> Coming Soon!</span></h4>
         <p>I'm currently working on new projects to build my skills and expand my portfolio. Stay tuned!</p>
       </div>
-  </div>
 </div>
 </section>
 
@@ -361,6 +399,7 @@ const Portfolio = () => {
           name="number"
           value={formData.number}
           onChange={handleChange}
+          required
         />
       </div>
       <div className="col-md-6">
@@ -371,6 +410,7 @@ const Portfolio = () => {
           name="subject"
           value={formData.subject}
           onChange={handleChange}
+          required
         />
       </div>
     </div>
@@ -397,8 +437,19 @@ const Portfolio = () => {
       </button>
     </div>
   </form>
+  {showToast && (
+    <div
+      role="alert"
+      aria-live="assertive"
+      className={`toast ${toastMessage.toLowerCase().includes("fail") ? "error" : "success"}`}
+    >
+      <span className="toast-icon">
+        {toastMessage.toLowerCase().includes("fail") ? '✖' : '✓'}
+      </span>
+      <span className="toast-message">{toastMessage}</span>
+    </div>
+  )}
 </section>
-
 
       <footer className="footer">
         <div className="footer-text">

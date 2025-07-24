@@ -307,6 +307,7 @@ transition: .5s ease;
 .heading {
     text-align: center;
     font-size: 4.5rem;
+    color: var(--text-color);
 }
 span{
     color: var(--main-color);
@@ -330,14 +331,6 @@ span{
     font-size: 20px;
     line-height: 1.4;
     margin-bottom: 4rem;
-}
-.sub-title {
-    text-align: center;
-    font-size: 4.5rem;
-    padding-bottom: 20px;
-}
-.sub-title span {
-    color: var(--main-color);
 }
 .container{
     padding: 90px;
@@ -424,14 +417,21 @@ span{
   margin: 0 auto;
   margin-top: 50px;
 }
-
+.skills-wrapper i{
+  color: var(--main-color);
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+.skills-wrapper i:hover {
+  color: #fff;
+  transform: scale(1.2);
+}
 .skills-left,
 .skills-right {
   flex: 1 1 500px;
   max-width: 550px;
 }
 .skills-right {
-    padding-left: 20px;
+    padding-left: 50px;
 }
 
 .skill::after {
@@ -460,7 +460,7 @@ span{
   text-align: center;
 }   
 .Technical-bars .bar {
-    margin-top: 20px 0;
+    margin: 5px 0;
 }
 .Technical-bars .bar:first-child{
     margin-top: 0;
@@ -679,18 +679,26 @@ span{
     animation: showText 0.5 1s linear forwards;
     opacity: 0;
 }
+.portfolio-heading{
+  font-size: 4.5rem;
+  color: var(--text-color);
+  text-align: center;
+  margin-bottom: 50px;
+}
 .portfolio-container {
   max-width: 950px;
   margin: 0 auto;
   padding: 0 90px;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
 }
 .portfolio-box{
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(259px,1fr));
-    grid-gap: 40px;
-    margin-top: 50px;
+    grid-gap: 50px;
 }
-.portfolio-box div{
+.portfolio-card {
     background-color: transparent;
     padding: 40px;
     border-radius: 20px;
@@ -702,7 +710,13 @@ span{
     align-items: center;
     justify-content: center;
     text-align: center;
-    gap: 15px;
+    gap: 20px;
+}
+.project-buttons {
+  display: flex;
+  gap: 15px; 
+  flex-wrap: wrap;
+  justify-content: center;
 }
 .portfolio-box i {
     font-size: 45px;
@@ -711,23 +725,91 @@ span{
 .portfolio-box h4 {
     font-size: 3rem;
     font-weight: 500;
+    color: var(--main-color);
 }
-.portfolio-box p{
+.portfolio-box p {
   font-size: 1.6rem;
   font-weight: 300;
-  color:  #ccc;
+  color: #ccc;
 }
-.portfolio-box div:hover{
+.portfolio-card:hover{
     transform: translateY(-10px);
 }
-.contact {
-  background: var(--bg-color);
+.tech-used {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+.tech-used strong {
+  font-size: 1.6rem;
+  color: var(--text-color);
+}
+.tech-icons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  font-size: 24px;
+  color: var(--main-color);
+}
+.tech-icons svg {
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+.tech-icons svg:hover {
+  color: #fff;
+  transform: scale(1.2);
+  cursor: pointer;
+}
+.portfolio-placeholder  {
+  border: 2px solid rgba(0, 83, 184, 0.97);
+  border-radius: 15px;
+  padding: 40px;
+  transition: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 20px;
+}
 
+.portfolio-placeholder i {
+  opacity: 75%;
+  font-size: 45px;
+  color: var(--main-color);
+}
+.portfolio-placeholder h4 {
+  opacity: 75%;
+  font-size: 3rem;
+  font-weight: 500;
+}
+.portfolio-placeholder p{
+  opacity: 75%;
+  font-size: 1.6rem;
+  font-weight: 300;
+}
+.portfolio-placeholder div:hover {
+  transform: none;
+}
+.portfolio-placeholder i:hover{
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
+}
+.portfolio-placeholder h4:hover{
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
+}
+.portfolio-placeholder p:hover{
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
+}
+.contact {
+  background: var(--second-bg-color);
 }
 .contact h2 {
   margin-bottom: 3rem;
 }
-
 .contact form {
   max-width: 70rem;
   margin: 1rem auto 3rem;
@@ -753,8 +835,8 @@ span{
   padding: 1.5rem;
   font-size: 1.6rem;
   color: var(--text-color);
-  background: var(--second-bg-color);
-  border: 1px solid #888; /* ✅ softer default border */
+  background: var(--bg-color);
+  border: 1px solid #888; 
   border-radius: 0.8rem;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
@@ -772,7 +854,7 @@ span{
   background: #0ef;
   border-radius: 40px;
   font-size: 18px;
-  color: var(--second-bg-color);
+  color: var(--bg-color);
   letter-spacing: 1px;
   text-decoration: none;
   font-weight: 600;
@@ -790,7 +872,7 @@ input:-webkit-autofill:focus,
 textarea:-webkit-autofill,
 textarea:-webkit-autofill:hover,
 textarea:-webkit-autofill:focus {
-  -webkit-box-shadow: 0 0 0px 1000px var(--second-bg-color) inset ;
+  -webkit-box-shadow: 0 0 0px 1000px var(--bg-color) inset ;
   -webkit-text-fill-color: var(--text-color) ;
   transition: background-color 9999s ease-in-out 0s;
 }
@@ -800,7 +882,7 @@ textarea:-webkit-autofill:focus {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: var(--second-bg-color);
+  background: var(--bg-color);
   color: var(--text-color);
   padding: 20px 30px;
   border-radius: 12px;
@@ -853,7 +935,7 @@ textarea:-webkit-autofill:focus {
     align-items: center;
     flex-wrap: wrap;
     padding: 2rem 9%;
-    background: var(--second-bg-color);
+    background: var(--bg-color);
 }
 .footer-text{
     font-size: 1.6rem;
@@ -868,7 +950,7 @@ textarea:-webkit-autofill:focus {
 }
 .footer-iconTop a i {
     font-size: 2.4rem;
-    color: var(--second-bg-color);
+    color: var(--bg-color);
 }
 @media (max-width: 1200px) {
     html {
@@ -900,7 +982,7 @@ textarea:-webkit-autofill:focus {
     padding: 0 2rem;
   }
 
-  .heading1, .heading2 {
+  .heading1 {
     text-align: center;
   }
 
@@ -922,7 +1004,6 @@ textarea:-webkit-autofill:focus {
      padding: 2rem 3%;
   }
 }
-
 @media (max-width: 768px) {
     #menu-icon {
         display: block;
@@ -981,6 +1062,12 @@ textarea:-webkit-autofill:focus {
         display: flex;
         justify-content: center;
     }
+    .sub-title {
+      font-size: 2.6rem;
+    }
+    .portfolio-heading{
+      font-size: 2.6rem;
+    }
     .portfolio-box {
       grid-template-columns: 1fr;
       margin-top: 30px;
@@ -997,6 +1084,19 @@ textarea:-webkit-autofill:focus {
     .portfolio-box i {
       font-size: 40px;
     }
+    .portfolio-card {
+      padding: 30px 20px;
+      gap: 15px;
+    }
+    .tech-icons {
+      font-size: 20px;
+      gap: 8px;
+    }
+    .project-buttons a {
+      font-size: 1.4rem;
+      padding: 10px 15px;
+    }
+
     .contact form .row {
         flex-direction: column;
     }
@@ -1008,19 +1108,22 @@ textarea:-webkit-autofill:focus {
   .skill {
     padding: 5rem 1rem;
   }
-
   .radial-bar {
     width: 100%;
     max-width: 300px;
     margin: 1rem auto;
   }
-
   .Technical-bars .bar .info span {
     font-size: 1.4rem;
   }
-
   .Technical-bars .bar {
     margin-bottom: 3rem;
+  }
+  .portfolio-card h4 {
+    font-size: 2.4rem;
+  }
+  .portfolio-card p {
+    font-size: 1.4rem;
   }
 }
 @media (max-width: 450px) {
@@ -1039,11 +1142,16 @@ textarea:-webkit-autofill:focus {
     width: 100%;
     margin-bottom: 20px;
   }
-    .footer {
-        flex-direction: column-reverse;
-    }
-    .footer p{
-        text-align: center;
-        margin-top: 2rem;
-    }
+  .tech-icons {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px;
+  }
+  .footer {
+    flex-direction: column-reverse;
+  }
+  .footer p{
+    text-align: center;
+    margin-top: 2rem;
+  }
 }
