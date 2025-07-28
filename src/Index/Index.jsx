@@ -1,6 +1,4 @@
 import React, { useState, useRef } from 'react';
-import { FaReact } from "react-icons/fa";
-import { SiDjango, SiMongodb, SiPython, SiHtml5, SiCss3 } from "react-icons/si";
 import axios from "axios";
 
 const Portfolio = () => {
@@ -21,11 +19,18 @@ const Portfolio = () => {
   const { name, value } = e.target;
 
   if (name === "number") {
-    // Allow only digits
-    const onlyNums = value.replace(/[^0-9]/g, "");
+    let digits = value.replace(/\D/g, "").slice(0, 10);
+      let formatted = "";
+    if (digits.length > 5) {
+      formatted = `+91 ${digits.slice(0, 5)} ${digits.slice(5)}`;
+    } else if (digits.length > 0) {
+      formatted = `+91 ${digits}`;
+    } else {
+      formatted = "";
+    }
     setFormData({
       ...formData,
-      [name]: onlyNums,
+      [name]: formatted,
     });
   } else {
     setFormData({
@@ -44,13 +49,23 @@ const Portfolio = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      const cleanedNumber = formData.number.replace(/\s/g, '');
+
     if (!formData.name || !formData.email || !formData.number || !formData.subject || !formData.message) {
       triggerToast("Please fill in all required fields.");
       return;
     }
+    if (!emailPattern.test(formData.email)) {
+    triggerToast("Please enter a valid email address.");
+    return;
+  }
+
     setLoading(true);
     try {
-      const res = await axios.post("https://portfolio-taf6.onrender.com/api/contact/", formData);
+      const res = await axios.post("https://portfolio-taf6.onrender.com/api/contact/", { ...formData, number: cleanedNumber });
       if (res.status === 200 || res.data.success) {
         triggerToast("Message sent successfully!");
         setFormData({ name: "", email: "", number: "", subject: "", message: "" });
@@ -67,13 +82,13 @@ const Portfolio = () => {
 
   return (
     <>
+    <main>
       <header className="header">
         <a href="#!" className="logo">Portfolio</a>
         <i className='bx bx-menu' id="menu-icon"></i>
         <nav className="navbar">
           <a href="#home" className="active">Home</a>
           <a href="#about">About</a>
-          {/*<a href="#services">Services</a>*/}
           <a href="#skill">Skill</a>
           <a href="#portfolio">Portfolio</a>            
           <a href="#contact">Contact</a>
@@ -91,7 +106,6 @@ const Portfolio = () => {
           <div className="social-media">
             <a href="https://www.linkedin.com/in/pirachannasundar..." target="_blank" rel="noopener noreferrer"><i className='bx bxl-linkedin'></i></a>
             <a href="https://github.com/Pirachanna" target="_blank" rel="noopener noreferrer"><i className='bx  bxl-github'></i></a>
-            {/*<a href="https://www.facebook.com/pirachanna.sundar" target="_blank" rel="noopener noreferrer"><i className='bx bxl-facebook'></i></a>*/}
             <a href="https://wa.me/919843414019?text=Hi%2C%20I%20visited%20your%20portfolio!" target="_blank" rel="noopener noreferrer" title="Chat on WhatsApp"><i className='bx  bxl-whatsapp'></i> </a>
           </div>
           <a href="assets/Pirachanna Resume.pdf" download="Pirachanna Resume" className="btn">Download CV</a>
@@ -99,7 +113,7 @@ const Portfolio = () => {
         <div className="home-img">
           <div className="img-box">
             <div className="img-item">
-            <img src={`${process.env.PUBLIC_URL}/assets/Pic.png`} alt="" />
+            <img loading='lazy' src={`${process.env.PUBLIC_URL}/assets/Pic.png`} alt="Pirachanna Ma Su - Full Stack Developer Profile" />
             </div>
           </div>
         </div>
@@ -109,7 +123,7 @@ const Portfolio = () => {
         <div className="about-img">
           <div className="img-box1">
             <div className="img-item1">
-              <img src={`${process.env.PUBLIC_URL}/assets/Pic.png`} alt=""/>
+              <img loading='lazy' src={`${process.env.PUBLIC_URL}/assets/Pic.png`} alt="Pirachanna Ma Su - Full Stack Developer Profile"/>
             </div>
           </div>
         </div>
@@ -126,38 +140,38 @@ const Portfolio = () => {
 
 <section className='services' id='services'>
           <div className="container">
-            <h1 className="sub-title">My <span>Services</span></h1>
+            <h1 className="heading">My <span>Services</span></h1>
             <div className="services-list">
                 <div>
-                  <i className='bx bx-code' style={{ color: '#00eeff' }}></i>
+                  <i className='bx bx-server' style={{ color: '#00eeff' }}></i>
                   <h2>Backend Development</h2>
                   <ol>
-                      <li type="disc">Custom API Development using Django/Flask/FastAPI.</li>
-                      <li type="disc"> Business logic implementation and performance optimization.</li>
-                      <li type="disc">Integration with third-party APIs and services.</li>
-                      <li type="disc"> Data validation and serialization.</li>
+                      <li>Custom API Development using Django/Flask/FastAPI.</li>
+                      <li> Business logic implementation and performance optimization.</li>
+                      <li>Integration with third-party APIs and services.</li>
+                      <li> Data validation and serialization.</li>
                   </ol>
                   {/*<a href="#!" className="read">Learn More</a>*/}
                 </div>
                 <div>
-                    <i className="fi fi-ts-square-terminal" style={{ color: '#00eeff' }}></i>
+                    <i className="bx bx-code-alt" style={{ color: '#00eeff' }}></i>
                     <h2>Frontend Development</h2>
                     <ol>
-                      <li type="disc">Responsive UI development using React.js.</li>
-                      <li type="disc"> Integration with backend APIs.</li>
-                      <li type="disc"> Dynamic data visualization (charts, dashboards).</li>
-                      <li type="disc"> Mobile-friendly & cross-browser compatibility.</li>
+                      <li>Responsive UI development using React.js.</li>
+                      <li> Integration with backend APIs.</li>
+                      <li> Dynamic data visualization (charts, dashboards).</li>
+                      <li> Mobile-friendly & cross-browser compatibility.</li>
                        </ol>
                     {/*<a href="#!" className="read">Learn More</a>*/}
                 </div>
                 <div>
-                   <i className="fi fi-rr-database" style={{ color: '#00eeff' }}></i>
+                   <i className="bx bx-data" style={{ color: '#00eeff' }}></i>
                     <h2>Database Design & Management</h2>
                     <ol>
-                      <li type="disc"> Relational databases: PostgreSQL, MySQL, SQLite.</li>
-                      <li type="disc"> NoSQL databases: MongoDB, Redis.</li>
-                      <li type="disc"> Database schema design and normalization</li>
-                      <li type="disc"> ORM integration (Django ORM, SQLAlchemy).</li>
+                      <li> Relational databases: PostgreSQL, MySQL, SQLite.</li>
+                      <li> NoSQL databases: MongoDB, Redis.</li>
+                      <li> Database schema design and normalization</li>
+                      <li> ORM integration (Django ORM, SQLAlchemy).</li>
                        </ol>
                     {/*<a href="#!" className="read">Learn More</a>*/}
                 </div>
@@ -325,12 +339,12 @@ const Portfolio = () => {
           <div className="tech-used">
             <strong>Tech Stack:</strong>
             <div className="tech-icons">
-              <FaReact title="React" />
-              <SiDjango title="Django" />
-              <SiMongodb title="MongoDB" />
-              <SiPython title="Python" />
-              <SiHtml5 title="HTML5" />
-              <SiCss3 title="CSS3" />
+            <i className='bx bxl-react' title="React"></i>
+            <i className='bx bxl-django' title="Django"></i>
+            <i className='bx bxl-mongodb' title="MongoDB"></i>
+            <i className='bx bxl-python' title="Python"></i>
+            <i className='bx bxl-html5' title="HTML5"></i>
+            <i className='bx bxl-css3' title="CSS3"></i>
             </div>
           </div>
           <div className="project-buttons">
@@ -397,6 +411,7 @@ const Portfolio = () => {
           className="form-control"
           placeholder="Mobile Number"
           name="number"
+          maxLength='16'
           value={formData.number}
           onChange={handleChange}
           required
@@ -440,6 +455,7 @@ const Portfolio = () => {
   {showToast && (
     <div
       role="alert"
+      tabIndex="0"
       aria-live="assertive"
       className={`toast ${toastMessage.toLowerCase().includes("fail") ? "error" : "success"}`}
     >
@@ -450,7 +466,7 @@ const Portfolio = () => {
     </div>
   )}
 </section>
-
+</main>
       <footer className="footer">
         <div className="footer-text">
           <p>Copyright &copy; Pirachanna | All rights reserved.</p>
