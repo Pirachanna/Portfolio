@@ -21,7 +21,6 @@ body
 background: var(--bg-color);
 color: var(--text-color);
 overflow-x: hidden;
-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 section {
     min-height: 100vh;
@@ -132,7 +131,7 @@ z-index: 100;
   animation: floatImage 4s ease-in-out infinite;
 }
 
-.home-img .img-box {
+.home-img .home-img-box {
   width: 32vw;
   height: 32vw;
   border-radius: 50%;
@@ -153,7 +152,7 @@ z-index: 100;
   animation: glow 10s linear infinite;
 }
 
-.home-img .img-box::after {
+.home-img .home-img-box::after {
   content: "";
   position: absolute;
   inset: -1rem;
@@ -164,7 +163,7 @@ z-index: 100;
   z-index: -1;
 }
 
-.home-img .img-box .img-item {
+.home-img .home-img-box .home-img-item {
   position: relative;
   width: 100%;
   height: 100%;
@@ -175,7 +174,7 @@ z-index: 100;
   overflow: hidden;
 }
 
-.home-img .img-box .img-item img {
+.home-img .home-img-box .home-img-item img {
   display: block;
   position: absolute;
   width: 85%;
@@ -245,12 +244,10 @@ transition: .5s ease;
     gap: 2rem;
     background: var(--second-bg-color);
 }
-
 .about-img {
   width: 35vw;
 }
-
-.about-img .img-box1 {
+.about-img .about-img-box {
   width: 32vw;
   height: 32vw;
   border-radius: 50%;
@@ -271,7 +268,7 @@ transition: .5s ease;
   animation: glow 10s linear infinite;
 }
 
-.about-img .img-box1::after {
+.about-img .about-img-box::after {
   content: "";
   position: absolute;
   inset: -1rem;
@@ -282,7 +279,7 @@ transition: .5s ease;
   z-index: -1;
 }
 
-.about-img .img-box1 .img-item1 {
+.about-img .about-img-box .about-img-item {
   position: relative;
   width: 100%;
   height: 100%;
@@ -293,7 +290,7 @@ transition: .5s ease;
   overflow: hidden;
 }
 
-.about-img .img-box1 .img-item1 img {
+.about-img .about-img-box .about-img-item img {
   display: block;
   position: absolute;
   width: 85%;
@@ -304,9 +301,6 @@ transition: .5s ease;
     text-align: center;
     font-size: 4.5rem;
     color: var(--text-color);
-}
-span{
-    color: var(--main-color);
 }
 .about-content h2 {
     text-align: left;
@@ -341,8 +335,7 @@ span{
     background-color: transparent;
     padding: 40px;
     font-size: 13px;
-    font-weight: 13px;
-    border-right: 10px;
+    font-weight: 500;
     border-radius: 20px;
     transition: background 0.5s, transform 0.5s;
     box-shadow: 1px 1px 20px #012290f7,
@@ -364,7 +357,7 @@ span{
     margin-top: 20px;
     display: inline-block;
 }
-.services-list ol {
+.services-list ul {
   color: #ccc;
   list-style-type: disc;
   padding-left: 20px;
@@ -372,26 +365,6 @@ span{
 .services-list div:hover{
     transform: translateY(-10px);
 }
-/*
-.read {
-    display: inline-block;
-    padding: 1rem 2.8rem;
-    background: var(--main-color);
-    border-radius: 4rem;
-    font-size: 1.6rem;
-    color: var(--second-bg-color);
-    letter-spacing: .1rem;
-    text-decoration: none;
-    font-weight: 600;
-    transition: .5s ease;
-    animation: slideTop 1s ease forwards;
-    animation-delay: 2s;
-    box-shadow: 0 0 1rem var(--main-color);
-}
-.read:hover {
-    box-shadow: none;
-}
-*/
 .section{
     display: flex;
     flex-wrap: wrap;
@@ -716,7 +689,7 @@ span{
   flex-wrap: wrap;
   justify-content: center;
 }
-.portfolio-box i {
+.portfolio-card > i {
     font-size: 45px;
     color: var(--main-color);
 }
@@ -750,10 +723,10 @@ span{
   flex-wrap: wrap;
   justify-content: center;
   gap: 10px;
-  font-size: 24px;
-  color: var(--main-color);
 }
 .tech-icons i {
+  font-size: 30px;
+  color: var(--main-color);
   transition: color 0.3s ease, transform 0.3s ease;
 }
 .tech-icons i:hover {
@@ -775,32 +748,26 @@ span{
 }
 
 .portfolio-placeholder i {
-  opacity: 75%;
+  opacity: 0.75;
   font-size: 45px;
   color: var(--main-color);
 }
 .portfolio-placeholder h4 {
-  opacity: 75%;
+  opacity: 0.75;
   font-size: 3rem;
   font-weight: 500;
 }
 .portfolio-placeholder p{
-  opacity: 75%;
+  opacity: 0.75;
   font-size: 1.6rem;
   font-weight: 300;
 }
 .portfolio-placeholder div:hover {
   transform: none;
 }
-.portfolio-placeholder i:hover{
-  opacity: 0.9;
-  transition: opacity 0.3s ease;
-}
-.portfolio-placeholder h4:hover{
-  opacity: 0.9;
-  transition: opacity 0.3s ease;
-}
-.portfolio-placeholder p:hover{
+.portfolio-placeholder i:hover,
+.portfolio-placeholder h4:hover,
+.portfolio-placeholder p:hover {
   opacity: 0.9;
   transition: opacity 0.3s ease;
 }
@@ -1062,7 +1029,7 @@ textarea:-webkit-autofill:focus {
         display: flex;
         justify-content: center;
     }
-    .sub-title {
+    .heading {
       font-size: 2.6rem;
     }
     .portfolio-heading{
@@ -1081,28 +1048,30 @@ textarea:-webkit-autofill:focus {
     .portfolio-box p {
       font-size: 1.4rem;
     }
-    .portfolio-box i {
-      font-size: 40px;
+    .portfolio-card > i {
+      font-size: 38px;
+    }
+    .tech-icons {
+     gap: 8px;
+    }
+    .tech-icons i{
+      font-size: 26px;
     }
     .portfolio-card {
       padding: 30px 20px;
       gap: 15px;
     }
-    .tech-icons {
-      font-size: 20px;
-      gap: 8px;
-    }
-    .tech-icons i {
-      font-size: 30px;
-    }
     .project-buttons a {
       font-size: 1.4rem;
       padding: 10px 15px;
     }
+    .portfolio-placeholder i {
+      font-size: 38px;
+    }
     .contact form .row {
         flex-direction: column;
     }
-  .contact form .col-md-6 {
+    .contact form .col-md-6 {
         min-width: 100%; 
     }
 }
@@ -1121,14 +1090,23 @@ textarea:-webkit-autofill:focus {
   .Technical-bars .bar {
     margin-bottom: 3rem;
   }
-  .tech-icons i {
-    font-size: 26px;
+  .portfolio-card {
+    padding: 20px 15px;
+  }
+  .portfolio-card > i{
+    font-size: 34px;
   }
   .portfolio-card h4 {
     font-size: 2.4rem;
   }
   .portfolio-card p {
     font-size: 1.4rem;
+  }
+  .tech-icons i {
+    font-size: 24px;
+  }
+  .portfolio-placeholder i {
+    font-size: 34px;
   }
 }
 @media (max-width: 450px) {
@@ -1147,13 +1125,19 @@ textarea:-webkit-autofill:focus {
     width: 100%;
     margin-bottom: 20px;
   }
+  .portfolio-card > i {
+    font-size: 30px;
+  }
+  .tech-icons i {
+    font-size: 22px;
+  }
+  .portfolio-placeholder i {
+    font-size: 30px;
+  }
   .tech-icons {
     flex-wrap: wrap;
     justify-content: center;
     gap: 6px;
-  }
-    .tech-icons i {
-    font-size: 22px;
   }
   .footer {
     flex-direction: column-reverse;

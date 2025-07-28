@@ -111,8 +111,8 @@ const Portfolio = () => {
           <a href="assets/Pirachanna Resume.pdf" download="Pirachanna Resume" className="btn">Download CV</a>
         </div>
         <div className="home-img">
-          <div className="img-box">
-            <div className="img-item">
+          <div className="home-img-box">
+            <div className="home-img-item">
             <img loading='lazy' src={`${process.env.PUBLIC_URL}/assets/Pic.png`} alt="Pirachanna Ma Su - Full Stack Developer Profile" />
             </div>
           </div>
@@ -121,8 +121,8 @@ const Portfolio = () => {
 
 <section className="about" id="about">
         <div className="about-img">
-          <div className="img-box1">
-            <div className="img-item1">
+          <div className="about-img-box">
+            <div className="about-img-item">
               <img loading='lazy' src={`${process.env.PUBLIC_URL}/assets/Pic.png`} alt="Pirachanna Ma Su - Full Stack Developer Profile"/>
             </div>
           </div>
@@ -134,7 +134,6 @@ const Portfolio = () => {
            Familiar with building RESTful APIs, working with databases like PostgreSQL and MongoDB, 
            and deploying apps using Docker and AWS. Eager to learn, grow, and contribute to real-world projects with strong problem-solving skills.
         </p>
-          {/*<a href="#!" className="btn">Read More</a>*/}
         </div>
 </section>
 
@@ -145,35 +144,32 @@ const Portfolio = () => {
                 <div>
                   <i className='bx bx-server' style={{ color: '#00eeff' }}></i>
                   <h2>Backend Development</h2>
-                  <ol>
+                  <ul>
                       <li>Custom API Development using Django/Flask/FastAPI.</li>
                       <li> Business logic implementation and performance optimization.</li>
                       <li>Integration with third-party APIs and services.</li>
                       <li> Data validation and serialization.</li>
-                  </ol>
-                  {/*<a href="#!" className="read">Learn More</a>*/}
+                  </ul>
                 </div>
                 <div>
                     <i className="bx bx-code-alt" style={{ color: '#00eeff' }}></i>
                     <h2>Frontend Development</h2>
-                    <ol>
+                    <ul>
                       <li>Responsive UI development using React.js.</li>
                       <li> Integration with backend APIs.</li>
                       <li> Dynamic data visualization (charts, dashboards).</li>
                       <li> Mobile-friendly & cross-browser compatibility.</li>
-                       </ol>
-                    {/*<a href="#!" className="read">Learn More</a>*/}
+                       </ul>
                 </div>
                 <div>
                    <i className="bx bx-data" style={{ color: '#00eeff' }}></i>
                     <h2>Database Design & Management</h2>
-                    <ol>
+                    <ul>
                       <li> Relational databases: PostgreSQL, MySQL, SQLite.</li>
                       <li> NoSQL databases: MongoDB, Redis.</li>
                       <li> Database schema design and normalization</li>
                       <li> ORM integration (Django ORM, SQLAlchemy).</li>
-                       </ol>
-                    {/*<a href="#!" className="read">Learn More</a>*/}
+                       </ul>
                 </div>
             </div>
           </div>
