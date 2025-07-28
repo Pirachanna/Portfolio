@@ -4,65 +4,132 @@ import Typed from 'typed.js';
 
 const AppEffects = () => {
   useEffect(() => {
+
     const menuIcon = document.querySelector('#menu-icon');
     const navbar = document.querySelector('.navbar');
-
-    const toggleMenu = () => {
-      menuIcon.classList.toggle('bx-x');
-      navbar.classList.toggle('active');
-    };
-
-    if (menuIcon) menuIcon.addEventListener('click', toggleMenu);
-
     const sections = document.querySelectorAll('section');
     const navLinks = document.querySelectorAll('header nav a');
+    const header = document.querySelector('header');
+
+    const toggleMenu = () => {
+      menuIcon?.classList.toggle('bx-x');
+      navbar?.classList.toggle('active');
+    };
+
+    if (menuIcon) {
+      menuIcon.addEventListener('click', toggleMenu);
+    }
 
     const onScroll = () => {
-      let top = window.scrollY;
+      const top = window.scrollY;
 
-      sections.forEach(sec => {
-        const offset = sec.offsetTop - 150;
-        const height = sec.offsetHeight;
-        const id = sec.getAttribute('id');
+      navLinks.forEach(link => link.classList.remove('active'));
+
+      sections.forEach(section => {
+        const offset = section.offsetTop - 150;
+        const height = section.offsetHeight;
+        const id = section.getAttribute('id');
 
         if (top >= offset && top < offset + height) {
-          navLinks.forEach(link => {
-            link.classList.remove('active');
-            const activeLink = document.querySelector(`header nav a[href*=${id}]`);
-            if (activeLink) activeLink.classList.add('active');
-          });
+          const activeLink = document.querySelector(`header nav a[href*="${id}"]`);
+          if (activeLink) activeLink.classList.add('active');
         }
       });
 
-      const header = document.querySelector('header');
-      if (header) header.classList.toggle('sticky', window.scrollY > 100);
+      header?.classList.toggle('sticky', top > 100);
 
       menuIcon?.classList.remove('bx-x');
       navbar?.classList.remove('active');
     };
 
     window.addEventListener('scroll', onScroll);
+    onScroll();
 
-    // ScrollReveal animations
-    ScrollReveal({
+    const sr = ScrollReveal({
       reset: true,
       distance: '80px',
       duration: 2000,
-      delay: 200
+      delay: 200,
     });
 
-    ScrollReveal().reveal('.home-content, .heading, .sub-title', { origin: 'top' });
-    ScrollReveal().reveal('.home-img, .container, .contact form', { origin: 'bottom' });
-    ScrollReveal().reveal('.home-content h1, .about-img', { origin: 'left' });
-    ScrollReveal().reveal('.home-content p, .about-content', { origin: 'right' });
+    sr.reveal('.home-content, .heading', {
+      origin: 'top',
+      distance: '60px',
+      duration: 1500,
+      delay: 100,
+      opacity: 0,
+      scale: 0.95,
+      easing: 'ease-out',
+    });
 
-    // Typed.js setup
+    sr.reveal('.home-content h1, .about-img', {
+      origin: 'left',
+      distance: '70px',
+      duration: 1700,
+      delay: 150,
+      opacity: 0,
+    });
+
+    sr.reveal('.home-content p, .about-content, .home-img', {
+      origin: 'right',
+      distance: '70px',
+      duration: 1700,
+      delay: 200,
+      opacity: 0,
+    });
+
+    sr.reveal('.container .services-list', {
+      origin: 'bottom',
+      distance: '40px',
+      duration: 1000,
+      interval: 150,
+      opacity: 0,
+      scale: 0.9,
+      easing: 'ease-in-out',
+    });
+
+    sr.reveal('.skills-wrapper', {
+      origin: 'left',
+      distance: '60px',
+      duration: 1000,
+      delay: 100,
+      opacity: 0,
+      easing: 'ease-out',
+    });
+
+    sr.reveal('.portfolio-heading', {
+      origin: 'top',
+      distance: '50px',
+      duration: 1400,
+      delay: 100,
+      opacity: 0,
+      scale: 0.95,
+    });
+
+    sr.reveal('.portfolio-container', {
+      origin: 'bottom',
+      distance: '60px',
+      duration: 1200,
+      scale: 0.9,
+      interval: 200,
+      delay: 200,
+    });
+
+    sr.reveal('.contact form', {
+      origin: 'left',
+      distance: '60px',
+      duration: 1400,
+      delay: 150,
+      opacity: 0,
+      easing: 'ease-in-out',
+    });
+
     const typed = new Typed('.multiple-text', {
       strings: ['Full Stack Developer', 'Frontend Developer', 'Backend Developer'],
       typeSpeed: 100,
       backSpeed: 100,
       backDelay: 1000,
-      loop: true
+      loop: true,
     });
 
     return () => {
@@ -72,7 +139,7 @@ const AppEffects = () => {
     };
   }, []);
 
-  return null; 
+  return null;
 };
 
 export default AppEffects;
