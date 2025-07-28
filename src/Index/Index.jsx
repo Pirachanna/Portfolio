@@ -334,10 +334,10 @@ const Portfolio = () => {
     <div className="portfolio-box">
       <div className='portfolio-card'>
           <i className="bx bx-globe"></i>
-          <h4>Portfolio Website</h4>
+          <h4>Portfolio <span>Website</span></h4>
           <p>A portfolio website built from scratch using React (frontend), Django (backend), and MongoDB as the database.</p>
           <div className="tech-used">
-            <strong>Tech Stack:</strong>
+            <strong>Tech <span>Stack:</span></strong>
             <div className="tech-icons">
             <i className='bx bxl-react' title="React"></i>
             <i className='bx bxl-django' title="Django"></i>

@@ -723,7 +723,7 @@ span{
 .portfolio-box h4 {
     font-size: 3rem;
     font-weight: 500;
-    color: var(--main-color);
+    color: var(--text-color);
 }
 .portfolio-box p {
   font-size: 1.6rem;
@@ -740,9 +740,11 @@ span{
   align-items: center;
 }
 .tech-used strong {
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   color: var(--text-color);
+  font-weight: 500;
 }
+
 .tech-icons {
   display: flex;
   flex-wrap: wrap;
@@ -1090,11 +1092,13 @@ textarea:-webkit-autofill:focus {
       font-size: 20px;
       gap: 8px;
     }
+    .tech-icons i {
+      font-size: 30px;
+    }
     .project-buttons a {
       font-size: 1.4rem;
       padding: 10px 15px;
     }
-
     .contact form .row {
         flex-direction: column;
     }
@@ -1116,6 +1120,9 @@ textarea:-webkit-autofill:focus {
   }
   .Technical-bars .bar {
     margin-bottom: 3rem;
+  }
+  .tech-icons i {
+    font-size: 26px;
   }
   .portfolio-card h4 {
     font-size: 2.4rem;
@@ -1144,6 +1151,9 @@ textarea:-webkit-autofill:focus {
     flex-wrap: wrap;
     justify-content: center;
     gap: 6px;
+  }
+    .tech-icons i {
+    font-size: 22px;
   }
   .footer {
     flex-direction: column-reverse;
