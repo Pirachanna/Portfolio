@@ -89,11 +89,10 @@ const AppEffects = () => {
     });
 
     sr.reveal('.skills-wrapper', {
-      origin: 'left',
-      distance: '60px',
       duration: 1000,
       delay: 100,
       opacity: 0,
+      scale: 0.95,  // slightly smaller at start
       easing: 'ease-out',
     });
 
