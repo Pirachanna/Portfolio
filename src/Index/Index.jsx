@@ -104,7 +104,7 @@ const Portfolio = () => {
             in building responsive web applications using Django, Flask, and React. Eager to contribute my technical knowledge, problem-solving skills,
             and passion for continuous learning in a challenging development environment.</p>
           <div className="social-media">
-            <a href="https://www.linkedin.com/in/pirachannasundar..." target="_blank" rel="noopener noreferrer"><i className='bx bxl-linkedin'></i></a>
+            <a href="https://www.linkedin.com/in/pirachannasundar" target="_blank" rel="noopener noreferrer"><i className='bx bxl-linkedin'></i></a>
             <a href="https://github.com/Pirachanna" target="_blank" rel="noopener noreferrer"><i className='bx  bxl-github'></i></a>
             <a href="https://wa.me/919843414019?text=Hi%2C%20I%20visited%20your%20portfolio!" target="_blank" rel="noopener noreferrer" title="Chat on WhatsApp"><i className='bx  bxl-whatsapp'></i> </a>
           </div>
